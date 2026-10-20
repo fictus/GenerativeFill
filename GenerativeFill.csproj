@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <SelfContained>false</SelfContained>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <AssemblyName>GenerativeFill</AssemblyName>
+    <RootNamespace>GenerativeFill</RootNamespace>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <Version>0.1.0</Version>
+    <!-- Folder that contains PaintDotNet.*.dll (Paint.NET 5.x install) -->
+    <PdnDir Condition="'$(PdnDir)' == ''">C:\Program Files\paint.net\</PdnDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ML.OnnxRuntime.DirectML" Version="1.24.4" />
+    <PackageReference Include="System.Drawing.Common" Version="9.0.0" />
+  </ItemGroup>
+
+  <!-- Paint.NET assemblies: referenced, never copied -->
+  <ItemGroup>
+    <Reference Include="PaintDotNet.Base"><HintPath>$(PdnDir)PaintDotNet.Base.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="PaintDotNet.Core"><HintPath>$(PdnDir)PaintDotNet.Core.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="PaintDotNet.Collections"><HintPath>$(PdnDir)PaintDotNet.Collections.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="PaintDotNet.ComponentModel"><HintPath>$(PdnDir)PaintDotNet.ComponentModel.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="PaintDotNet.Data"><HintPath>$(PdnDir)PaintDotNet.Data.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="PaintDotNet.Effects"><HintPath>$(PdnDir)PaintDotNet.Effects.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="PaintDotNet.Effects.Core"><HintPath>$(PdnDir)PaintDotNet.Effects.Core.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="PaintDotNet.Fundamentals"><HintPath>$(PdnDir)PaintDotNet.Fundamentals.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="PaintDotNet.Framework"><HintPath>$(PdnDir)PaintDotNet.Framework.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="PaintDotNet.ObjectModel"><HintPath>$(PdnDir)PaintDotNet.ObjectModel.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="PaintDotNet.Primitives"><HintPath>$(PdnDir)PaintDotNet.Primitives.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="PaintDotNet.PropertySystem"><HintPath>$(PdnDir)PaintDotNet.PropertySystem.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="PaintDotNet.Windows"><HintPath>$(PdnDir)PaintDotNet.Windows.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="PaintDotNet.Windows.Core"><HintPath>$(PdnDir)PaintDotNet.Windows.Core.dll</HintPath><Private>false</Private></Reference>
+  </ItemGroup>
+
+</Project>
